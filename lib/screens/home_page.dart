@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -30,12 +29,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var provider = Provider.of<HomePageViewModel>(context);
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: AppColors.colorPrimary,
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: AppColors.colorPrimary,
         title: buildAppbarIcons(),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.colorPrimary,
         items: generateItems(),
         currentIndex:
             provider.getSelectedIndex() < 6 ? provider.getSelectedIndex() : 0,
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Row buildAppbarIcons() {
+  Widget buildAppbarIcons() {
     var provider = Provider.of<HomePageViewModel>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
