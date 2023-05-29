@@ -10,6 +10,8 @@ class SocialPage extends StatefulWidget {
 class _SocialPageState extends State<SocialPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("SocialPage"),
+    );
   }
 }

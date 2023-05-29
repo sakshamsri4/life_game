@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
-class HomePageViewModel with ChangeNotifier
-{
-  int selectedIndex=0;
+class HomePageViewModel with ChangeNotifier {
+  int selectedIndex = 0;
 
-  void setIndex(int value)
-  {
-    selectedIndex=value;
+  int getSelectedIndex() {
+    return selectedIndex;
+  }
+
+  void setIndex(int value) {
+    selectedIndex = value;
     notifyListeners();
   }
 }

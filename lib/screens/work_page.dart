@@ -10,6 +10,8 @@ class WorkPage extends StatefulWidget {
 class _WorkPageState extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("WorkPage"),
+    );
   }
 }

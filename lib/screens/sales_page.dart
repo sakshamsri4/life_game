@@ -10,6 +10,8 @@ class SalesPage extends StatefulWidget {
 class _SalesPageState extends State<SalesPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("SalesPage"),
+    );
   }
 }
