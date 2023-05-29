@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_game/constants/route_paths.dart';
 import 'package:my_game/core/router/app_router.dart';
 import 'package:my_game/viewModel/home_page_view_model.dart';
 import 'package:provider/provider.dart';

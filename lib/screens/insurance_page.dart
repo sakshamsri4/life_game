@@ -10,6 +10,8 @@ class InsurancePage extends StatefulWidget {
 class _InsurancePageState extends State<InsurancePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("InsurancePage"),
+    );
   }
 }

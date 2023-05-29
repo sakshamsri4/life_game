@@ -10,6 +10,8 @@ class LovePage extends StatefulWidget {
 class _LovePageState extends State<LovePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text("LovePage"),
+    );
   }
 }
