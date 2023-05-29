@@ -7,6 +7,8 @@ import 'package:my_game/constants/app_colors.dart';
 import 'package:my_game/constants/icon_constants.dart';
 import 'package:my_game/constants/route_paths.dart';
 import 'package:my_game/constants/theme_text.dart';
+import 'package:my_game/viewModel/home_page_view_model.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -28,6 +30,9 @@ class _HomePageState extends State<HomePage> {
             children: List.generate(5, (index) {
               return InkWell(
                 onTap: () {
+                  HomePageViewModel provider =
+                      Provider.of<HomePageViewModel>(context,listen: false);
+                  provider.setIndex(provider.selectedIndex + 1);
                   Navigator.pushNamed(context, RoutePaths.education);
                 },
                 child: SvgPicture.asset(
@@ -66,52 +71,54 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildEarningTile() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Container(
-        color: Colors.black,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Text(
-                  "Incomings",
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                ),
-                Text(
-                  "50",
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  "Total Cash",
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                ),
-                Text(
-                  "4K",
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  "Date",
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                ),
-                Text(
-                  DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
-                  style: getTextHeading(color: AppColors.colorDarkYellow),
-                )
-              ],
-            )
-          ],
+    return Consumer<HomePageViewModel>(builder: (context, provider, _) {
+      return Padding(
+        padding: const EdgeInsets.all(20),
+        child: Container(
+          color: Colors.black,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    provider.selectedIndex.toString(),
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  ),
+                  Text(
+                    "50",
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Total Cash",
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  ),
+                  Text(
+                    "4K",
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Date",
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  ),
+                  Text(
+                    DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
+                    style: getTextHeading(color: AppColors.colorDarkYellow),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

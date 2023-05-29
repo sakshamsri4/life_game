@@ -11,6 +11,7 @@ import 'package:my_game/screens/setting_page.dart';
 import 'package:my_game/screens/shopping_page.dart';
 import 'package:my_game/screens/social_page.dart';
 import 'package:my_game/screens/work_page.dart';
+import 'package:my_game/viewModel/home_page_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AppRouter {
@@ -26,7 +27,9 @@ class AppRouter {
         return _getRouteWithMultiProvider(child, []);
       case RoutePaths.home:
         const child = HomePage();
-        final providers = [];
+        final providers = [
+         ChangeNotifierProvider(create: (context)=>HomePageViewModel())
+          ];
         return _getRouteWithMultiProvider(child, []);
       case RoutePaths.insurance:
         const child = InsurancePage();
