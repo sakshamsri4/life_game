@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:my_game/constants/app_colors.dart';
 import 'package:my_game/constants/theme_text.dart';
 
@@ -16,7 +15,6 @@ class _WorkPageState extends State<WorkPage> {
     return Center(
       child: Column(
         children: [
-          buildEarningTile(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
@@ -41,8 +39,7 @@ class _WorkPageState extends State<WorkPage> {
           customButton(
               title: "Special Jobs", color: AppColors.colorPrimaryDark),
           customButton(
-              title: "Criminal Level Jobs",
-              color: AppColors.colorPrimaryDark),
+              title: "Criminal Level Jobs", color: AppColors.colorPrimaryDark),
           customButton(title: "Quit Job", color: AppColors.colorAccent),
         ],
       ),
@@ -96,76 +93,6 @@ class _WorkPageState extends State<WorkPage> {
             style: getTextHeading(color: AppColors.colorWhite),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget buildEarningTile() {
-    return Container(
-      color: AppColors.colorDarkPurpleSemiTransparent,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Incomings",
-                      style: getTextHeading(color: AppColors.colorDarkYellow),
-                    ),
-                    Text(
-                      "50",
-                      style: getTextHeading(color: AppColors.colorWhite),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "Total Cash",
-                      style: getTextHeading(color: AppColors.colorDarkYellow),
-                    ),
-                    Text(
-                      "4K",
-                      style: getTextHeading(color: AppColors.colorWhite),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "Date",
-                      style: getTextHeading(color: AppColors.colorDarkYellow),
-                    ),
-                    Text(
-                      DateFormat('yyyy-MM-dd')
-                          .format(DateTime.now())
-                          .toString(),
-                      style: getTextHeading(color: AppColors.colorWhite),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 4.0, // This will be the height of your gradient border
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[
-                  Colors.red,
-                  Colors.yellow,
-                  Colors.green,
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

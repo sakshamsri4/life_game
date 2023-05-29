@@ -46,7 +46,82 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.blue,
         type: BottomNavigationBarType.fixed,
       ),
-      body: selectPage(),
+      body: Column(
+        children: [
+          buildEarningTile(),
+          selectPage(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildEarningTile() {
+    return Container(
+      color: AppColors.colorDarkPurpleSemiTransparent,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "Incomings",
+                      style: getTextHeading(color: AppColors.colorDarkYellow),
+                    ),
+                    Text(
+                      "50",
+                      style: getTextHeading(color: AppColors.colorWhite),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Total Cash",
+                      style: getTextHeading(color: AppColors.colorDarkYellow),
+                    ),
+                    Text(
+                      "4K",
+                      style: getTextHeading(color: AppColors.colorWhite),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Date",
+                      style: getTextHeading(color: AppColors.colorDarkYellow),
+                    ),
+                    Text(
+                      DateFormat('yyyy-MM-dd')
+                          .format(DateTime.now())
+                          .toString(),
+                      style: getTextHeading(color: AppColors.colorWhite),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 4.0, // This will be the height of your gradient border
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Colors.red,
+                  Colors.yellow,
+                  Colors.green,
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -133,7 +208,7 @@ class _HomePageState extends State<HomePage> {
     Widget page;
     switch (index) {
       case 0:
-        page = buildBody();
+        page = buildWork();
         break;
       case 1:
         page = const WorkPage();
@@ -178,13 +253,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildBody() {
-    return Column(
-      children: [buildEarningTile()],
-    );
-  }
-
-  Widget buildEarningTile() {
+/*  Widget buildEarningTile() {
     return Consumer<HomePageViewModel>(builder: (context, provider, _) {
       return Padding(
         padding: const EdgeInsets.all(20),
@@ -234,5 +303,5 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     });
-  }
+  }*/
 }

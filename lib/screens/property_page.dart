@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_game/constants/app_colors.dart';
+import 'package:my_game/constants/theme_text.dart';
 
 class PropertyPage extends StatefulWidget {
   const PropertyPage({Key? key}) : super(key: key);
@@ -10,8 +12,11 @@ class PropertyPage extends StatefulWidget {
 class _PropertyPageState extends State<PropertyPage> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("PropertyPage"),
+    return Center(
+      child: Text(
+        "PropertyPage",
+        style: getTextHeading(color: AppColors.colorWhite),
+      ),
     );
   }
 }
